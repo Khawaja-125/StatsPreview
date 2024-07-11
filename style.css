@@ -7,15 +7,22 @@ html,body{
     width: 100%;
     min-height: 100vh;
     display: grid;
+    background-color: #0A0C1B;
     place-content: center;
 }
 .grid_container{
-    /* max-width: 100%; */
     max-width: 600px;
-    min-height: 80vh;
     display: grid;
-    grid-template-columns: 1fr 1fr;  
+    place-content: center;
+    /* grid-template-columns: 1fr 1fr;   */
     background-color: #0A0C1B;
+}
+.grid_container .card{
+    max-width: 600px;
+    display: grid;
+    border-radius: 5px;
+    overflow: hidden;
+    grid-template-columns: 1fr 1fr;
 }
 .left{
     display: grid;
@@ -32,6 +39,18 @@ html,body{
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+.right{
+    position: relative;
+}
+.right::after{
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: hsla(244, 38%, 16%,0.7);
 }
 .right img{
    width: 100%;
@@ -52,10 +71,29 @@ html,body{
 }
 @media(max-width:500px){
     .grid_container{
+        padding: 4rem 1rem;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+    .grid_container .card{
         display: grid;
         width: 100%;
-        height: 100%;
+        border: none;
+        background-color: #fff;
+        border-radius: 5px;
+        overflow: hidden;
         grid-template-columns: 1fr;
+    }
+    .left .flex_group{
+        display:flex;
+        margin-top: 0.25rem;
+        flex-direction: column;
+        align-items:center;
+        justify-content:center;
+    }
+    .flex_group .flex_item{
+        padding: 0.75rem;
     }
     .right{
         width: 100%;
@@ -67,4 +105,5 @@ html,body{
         height: 100%;
         object-fit: cover;
     }
+
     }
